@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8CE7FFD72B3F506C00F82317 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 8CE7FFD62B3F506C00F82317 /* main.c */; };
+		8CE7FFE22B3F50BE00F82317 /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE7FFE02B3F509100F82317 /* SDL2.framework */; };
+		8CE7FFE32B3F50BE00F82317 /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8CE7FFE02B3F509100F82317 /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -20,11 +22,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
+		8CE7FFE42B3F50BE00F82317 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				8CE7FFE32B3F50BE00F82317 /* SDL2.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		8CE7FFD32B3F506C00F82317 /* ppp */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = ppp; sourceTree = BUILT_PRODUCTS_DIR; };
 		8CE7FFD62B3F506C00F82317 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		8CE7FFDE2B3F508100F82317 /* Frameworks */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Frameworks; path = ../../../../Library/Frameworks; sourceTree = "<group>"; };
+		8CE7FFE02B3F509100F82317 /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = ../../../../Library/Frameworks/SDL2.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CE7FFE22B3F50BE00F82317 /* SDL2.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -43,6 +59,7 @@
 			children = (
 				8CE7FFD52B3F506C00F82317 /* ppp */,
 				8CE7FFD42B3F506C00F82317 /* Products */,
+				8CE7FFDD2B3F508100F82317 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,6 +79,15 @@
 			path = ppp;
 			sourceTree = "<group>";
 		};
+		8CE7FFDD2B3F508100F82317 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8CE7FFE02B3F509100F82317 /* SDL2.framework */,
+				8CE7FFDE2B3F508100F82317 /* Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -72,6 +98,7 @@
 				8CE7FFCF2B3F506C00F82317 /* Sources */,
 				8CE7FFD02B3F506C00F82317 /* Frameworks */,
 				8CE7FFD12B3F506C00F82317 /* CopyFiles */,
+				8CE7FFE42B3F50BE00F82317 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -245,6 +272,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = /opt/homebrew/include;
+				LIBRARY_SEARCH_PATHS = "/opt/homebrew/lib ";
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -253,6 +287,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LOCAL_LIBRARY_DIR)/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = /opt/homebrew/include;
+				LIBRARY_SEARCH_PATHS = "/opt/homebrew/lib ";
+				OTHER_CODE_SIGN_FLAGS = "--deep";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
